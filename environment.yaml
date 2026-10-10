@@ -1,0 +1,10 @@
+name: pop_size_impact
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy>=2.0      # np.trapezoid was added in numpy 2.0
+  - scipy=1.15
+  - pandas=2.3
+  - matplotlib=3.10
+  - ipykernel       # to run the notebook in Jupyter / VS Code
