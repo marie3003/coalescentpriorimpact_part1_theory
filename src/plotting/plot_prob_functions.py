@@ -11,6 +11,7 @@ from matplotlib.colors import LogNorm
 
 from src.prob_functions import likelihood_tMRCA_mutations, coalescent_prior, coalescent_prior_expN_present, coalescent_prior_bottleneck
 from src.metrics import calculate_coalescent_information_ratio_at_MAP, calculate_wasserstein_dist, calculate_mode_shift, calculate_median_shift
+from src.plotting.utils import save_pdf
 
 
 def _normalize(distr, t_values, scale_mode):
@@ -165,7 +166,7 @@ def plot_tMRCA_constN(N_values, alpha_values, base_mu, base_k, t_max, L, time_sc
     )
     fig.tight_layout(rect=[0, 0, 1, 0.97], h_pad=1.2, w_pad=2.0)
     if save_path is not None:
-        plt.savefig(save_path, format="pdf", bbox_inches="tight")
+        save_pdf(save_path)
     plt.show()
 
 
@@ -289,7 +290,7 @@ def plot_tMRCA_expN_present(mu, L, k_mut, N_present, beta_vec, max_tmrca, N=None
     )
     fig.tight_layout(rect=[0, 0, 1, 0.90], h_pad=1.2, w_pad=2.0)
     if save_path is not None:
-        plt.savefig(save_path, format="pdf", bbox_inches="tight")
+        save_pdf(save_path)
     plt.show()
 
 
@@ -443,7 +444,7 @@ def plot_tMRCA_bottleneck(mu, L, k_mut, N_high, N_low_vec, t_bottleneck_start, t
         rect_top = 0.94
     plt.tight_layout(rect=[0, 0, 1, rect_top])
     if save_path is not None:
-        plt.savefig(save_path, format="pdf", bbox_inches="tight")
+        save_pdf(save_path)
     plt.show()
 
 
@@ -551,7 +552,7 @@ def plot_mutational_signal_std(base_mu, L, base_k, alpha_values, pathogens=None,
     fig.tight_layout()
 
     if save_path is not None:
-        plt.savefig(save_path, format="pdf", bbox_inches="tight")
+        save_pdf(save_path)
     plt.show()
 
 
@@ -612,5 +613,5 @@ def plot_mutational_signal_std_by_rate(base_mu, L, base_k, alpha_values, signal_
     fig.tight_layout()
 
     if save_path is not None:
-        plt.savefig(save_path, format="pdf", bbox_inches="tight")
+        save_pdf(save_path)
     plt.show()

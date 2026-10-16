@@ -3,6 +3,7 @@ Summary plots of prior influence metrics (from src.evaluate_prior_impact) across
 """
 
 import matplotlib.pyplot as plt
+from src.plotting.utils import save_pdf
 
 
 def _plot_metric_summary_exp(ax, df_exp, metric, colors, y_label, legend_title=None):
@@ -104,7 +105,7 @@ def plot_metric_summary(title, df_exp=None, df_bottleneck=None, metric="median_s
 
     plt.tight_layout(rect=[0, 0, 1, 0.95])
     if save_path is not None:
-        plt.savefig(save_path, format="pdf", bbox_inches="tight")
+        save_pdf(save_path)
     plt.show()
 
 def plot_pathogen_error_summary(title, df_const=None, df_growth=None, df_bottleneck=None, error_col="median_shift", y_label=None, save_path=None, legend_position="in"):
@@ -206,5 +207,5 @@ def plot_pathogen_error_summary(title, df_const=None, df_growth=None, df_bottlen
 
     fig.suptitle(title, fontsize=28)
     if save_path is not None:
-        plt.savefig(save_path, format="pdf", bbox_inches="tight")
+        save_pdf(save_path)
     plt.show()
